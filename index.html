@@ -70,29 +70,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        /* Graphics Section */
-        .graphic-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: #edf2f7;
-            border: 2px dashed #cbd5e1;
-            min-height: 300px;
-        }
-
-        .graphic-placeholder {
-            text-align: center;
-            color: var(--text-muted);
-        }
-
-        .graphic-placeholder svg {
-            width: 64px;
-            height: 64px;
-            fill: #94a3b8;
-            margin-bottom: 1rem;
-        }
-
         /* Form Styling */
         .form-group {
             margin-bottom: 1.5rem;
@@ -188,27 +165,27 @@
                 <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Application Form</h2>
                 <form id="applicationForm" onsubmit="handleFormSubmit(event)">
                     <div class="form-group">
-                        <label Merlin-label-for="name">Full Name</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" required placeholder="John Doe">
                     </div>
 
                     <div class="form-group">
-                        <label Merlin-label-for="email">Gmail Address</label>
+                        <label for="email">Gmail Address</label>
                         <input type="email" id="email" required placeholder="yourname@gmail.com">
                     </div>
 
                     <div class="form-group">
-                        <label Merlin-label-for="address">Home Address</label>
+                        <label for="address">Home Address</label>
                         <input type="text" id="address" required placeholder="123 Remote St, City, Country">
                     </div>
 
                     <div class="form-group">
-                        <label Merlin-label-for="age">Age</label>
+                        <label for="age">Age</label>
                         <input type="number" id="age" min="18" max="100" required placeholder="25">
                     </div>
 
                     <div class="form-group">
-                        <label Merlin-label-for="cv">Upload CV / Resume</label>
+                        <label for="cv">Upload CV / Resume</label>
                         <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
                     </div>
 
@@ -218,14 +195,7 @@
 
             <!-- Graphics Image Section -->
             <section class="card" style="display: flex; justify-content: center; align-items: center;">
-                <img src="https://github.com/jobaly/remote/blob/47c3ce239259751d63e198929f70a9ef669daeb1/twitter-image.png" alt="Remote Customer Support Team" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
-            </section>
-        </main>
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.5-7L11 15.51 8.5 12.5 5 17h14l-4.5-5z"/>
-                    </svg>
-                    <h3>[ Insert Your Team Graphics Here ]</h3>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Suggested size: 500x500px (JPG/PNG)</p>
-                </div>
+                <img src="https://raw.githubusercontent.com/jobaly/remote/47c3ce239259751d63e198929f70a9ef669daeb1/twitter-image.png" alt="Remote Customer Support Team" style="width: 100%; max-width: 450px; height: auto; border-radius: 8px;">
             </section>
         </main>
     </div>
@@ -242,15 +212,15 @@
     <!-- Form Toggle Script -->
     <script>
         function handleFormSubmit(event) {
-            event.preventDefault(); // Prevents the browser from reloading the page
+            event.preventDefault(); // Prevents page reload
             
-            // Hide the application landing page
+            // Hide the landing page content
             document.getElementById('landing-page').style.display = 'none';
             
-            // Show the thank you page
+            // Reveal the thank you view
             document.getElementById('thank-you-page').style.display = 'block';
             
-            // Optional: Scroll to the top of the page smoothly
+            // Smoothly snap to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
