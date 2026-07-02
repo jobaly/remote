@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply: Remote Customer Representative</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-light: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        /* Cards Layout */
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Graphics Section */
+        .graphic-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #edf2f7;
+            border: 2px dashed #cbd5e1;
+            min-height: 300px;
+        }
+
+        .graphic-placeholder {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .graphic-placeholder svg {
+            width: 64px;
+            height: 64px;
+            fill: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        input[type="file"] {
+            background: var(--bg-light);
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Thank You Page (Hidden by default) */
+        #thank-you-page {
+            display: none;
+            text-align: center;
+            max-width: 600px;
+            margin: 5rem auto;
+            padding: 3rem 2rem;
+        }
+
+        #thank-you-page svg {
+            width: 80px;
+            height: 80px;
+            fill: #10b981;
+            margin-bottom: 1.5rem;
+        }
+
+        #thank-you-page h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        #thank-you-page p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MAIN LANDING PAGE -->
+    <div id="landing-page">
+        <header>
+            <h1>Join Our Remote Support Team</h1>
+            <p>We are looking for passionate Customer Service Representatives to help support our global community from the comfort of their home.</p>
+        </header>
+
+        <main class="container">
+            <!-- Form Section -->
+            <section class="card">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Application Form</h2>
+                <form id="applicationForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label Merlin-label-for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label Merlin-label-for="email">Gmail Address</label>
+                        <input type="email" id="email" required placeholder="yourname@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label Merlin-label-for="address">Home Address</label>
+                        <input type="text" id="address" required placeholder="123 Remote St, City, Country">
+                    </div>
+
+                    <div class="form-group">
+                        <label Merlin-label-for="age">Age</label>
+                        <input type="number" id="age" min="18" max="100" required placeholder="25">
+                    </div>
+
+                    <div class="form-group">
+                        <label Merlin-label-for="cv">Upload CV / Resume</label>
+                        <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+                    </div>
+
+                    <button type="submit">Submit Application</button>
+                </form>
+            </section>
+
+            <!-- Graphics Image Section -->
+            <section class="card graphic-section">
+                <!-- You can replace this entire div with an <img src="your-image.jpg" alt="Graphics"> tag -->
+                <div class="graphic-placeholder">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.5-7L11 15.51 8.5 12.5 5 17h14l-4.5-5z"/>
+                    </svg>
+                    <h3>[ Insert Your Team Graphics Here ]</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Suggested size: 500x500px (JPG/PNG)</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- THANK YOU PAGE -->
+    <div id="thank-you-page" class="card">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <h2>Thank you for submitting your application!</h2>
+        <p>We have received your details and our hiring team will review your CV. We will get back to you shortly via your provided Gmail address.</p>
+    </div>
+
+    <!-- Form Toggle Script -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevents the browser from reloading the page
+            
+            // Hide the application landing page
+            document.getElementById('landing-page').style.display = 'none';
+            
+            // Show the thank you page
+            document.getElementById('thank-you-page').style.display = 'block';
+            
+            // Optional: Scroll to the top of the page smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
